@@ -1,7 +1,22 @@
 // test.lox
-if (true) {
-  print "yes";
-} else {
-  print "no";
+fun outerFunction() {
+  fun localFunction() {
+    print "I'm local!";
+  }
+
+  localFunction();
 }
 
+
+fun returnFunction() {
+  var outside = "outside";
+
+  fun inner() {
+    print outside;
+  }
+
+  return inner;
+}
+
+var printOutside = returnFunction();
+printOutside(); 
