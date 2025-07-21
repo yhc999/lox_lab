@@ -1,0 +1,58 @@
+// acc is a accumulator it can compute such as 1 + 2 + 3.. 1 + 2*2 + 3*3.. 1 * 2 * 3.. and so on
+// args:
+//      item: function it compute the i-th item
+//      combine: fuction that is how to combine different items
+//      start: start val. 
+//              if your combine method is +, start is 0, if your combine is *, it is 1
+//      n: it will compute to n-th item 
+//
+// it will compute from 1-th item start 
+//
+// this function be like this:
+//
+// item(1) + item(2) + item(3)...+ item(n) // in this procedure, item is: item - combine is +(it should be a add function)
+//                                         // start is: 0, n is: some value
+//
+// item(1) * item(2) * item(3)... * item(n) // in this, start is: 0, combine is: *
+fun acc(item, combine, start, n) {
+	var i = 1;
+    var res = start;
+	while (i <= n) {
+        var item_i = item(i);
+        res = combine(res, item_i);
+        i = i + 1;
+    }   
+	return res;	
+}
+
+fun add(a, b) {
+    return a + b; 
+}   
+
+fun multiply(a, b) {
+    return a * b;
+}   
+
+fun identity(a) {
+    return a;
+}
+
+fun square(x) {
+    return x * x;
+}
+
+fun cube(x) {
+    return x * x * x;
+}
+
+var res = acc(identity, add, 0, 3);
+
+print res; // 1 + 2 + 3
+
+print acc(square, add, 0, 3); // 1 + 4 + 9
+
+print acc(cube, add, 0, 4); // 1 + 8 + 27 + 64 = 100
+
+print acc(identity, multiply, 1, 5); // !5 = 120
+
+
