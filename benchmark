@@ -1,0 +1,2 @@
+#hyperfine 'clox fib.lox' 'python3 fib.py'
+hyperfine 'jlox fib.lox' 'python3 fib.py'

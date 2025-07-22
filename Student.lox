@@ -1,0 +1,16 @@
+
+class Student {
+
+    init(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    to_string() {
+        return this.name;
+    }
+}
+
+var s = Student("tim", 10);
+
+print s.to_string();

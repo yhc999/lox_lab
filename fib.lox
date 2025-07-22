@@ -1,0 +1,23 @@
+//fun fib(x) {
+    //if (x == 0 or x == 1) {
+        //return x;
+    //} else {
+        //return fib(x-1) + fib(x-2);
+    //}
+//}  
+
+fun fib(x) {
+    var i = 0;
+    var j = 1;
+    while (x > 0) {
+        var sum = i + j; 
+        i = j;
+        j = sum;
+        x = x - 1;
+    }
+    return i;
+}   
+
+for (var i = 0; i <= 25; i = i + 1) {
+    print fib(i);
+}
